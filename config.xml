@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<module configVersion="1.2">
+
+    <!-- Module Properties -->
+    <id>cohort</id>
+    <name>Cohort Module</name>
+    <version>2.1.0</version>
+    <package>org.openmrs.module.cohort
+    </package>
+    <author>Sharon</author>
+    <description>
+        Module to support Cohort-level encounters and observations and to create these encounters via a REST
+        interface
+    </description>
+    <updateURL>https://modules.openmrs.org/modules/download/cohort/update.rdf
+    </updateURL>
+    <require_version>2.0.6</require_version>
+    <!-- / Module Properties -->
+
+
+    <!-- Module Activator -->
+    <activator>org.openmrs.module.cohort.cohortActivator
+    </activator>
+    <require_modules>
+        <require_module version="2.16">
+            org.openmrs.module.webservices.rest
+        </require_module>
+
+        <require_module version="${htmlformentryVersion}">
+            org.openmrs.module.htmlformentry
+        </require_module>
+    </require_modules>
+    
+    <aware_of_modules>
+	    <aware_of_module>org.openmrs.module.legacyui</aware_of_module>
+	</aware_of_modules>
+	
+    <!-- Adds link to admin page -->
+    <extension>
+        <point>org.openmrs.admin.list</point>
+        <class>org.openmrs.module.cohort.extension.html.AdminList
+        </class>
+    </extension>
+
+    <!-- Maps hibernate file's, if present -->
+    <mappingFiles>
+        CohortType.hbm.xml
+        CohortRole.hbm.xml
+        CohortAttributeType.hbm.xml
+        CohortAttribute.hbm.xml
+        CohortEncounter.hbm.xml
+        CohortMemberAttributeType.hbm.xml
+        CohortMemberAttribute.hbm.xml
+        Cohort.hbm.xml
+        CohortMember.hbm.xml
+        CohortVisit.hbm.xml
+        CohortProgram.hbm.xml
+        CohortObs.hbm.xml
+    </mappingFiles>
+    <!-- Internationalization -->
+    <!-- All message codes should start with cohort. -->
+    <messages>
+        <lang>en</lang>
+        <file>messages.properties</file>
+    </messages>
+    <messages>
+        <lang>fr</lang>
+        <file>messages_fr.properties</file>
+    </messages>
+    <messages>
+        <lang>es</lang>
+        <file>messages_es.properties</file>
+    </messages>
+    <!-- /Internationalization -->
+
+</module>
+
